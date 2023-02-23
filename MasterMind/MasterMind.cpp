@@ -3,6 +3,8 @@
 
 #include "Console.h"
 #include "GameLogic.h"
+#include "Input.h"
+#include "ViewRender.h"
 #include <iostream>
 
 int main()
@@ -11,8 +13,15 @@ int main()
 
 	//- Calling All classes used in this scope.
 	GameLogic gameLogic;
-	//-Missing Render
-	//-Missing Input
+	ViewRender render;
+	Input input;
+
+
+	//- Show the Menu
+
+
+
+
 
 
 

@@ -129,12 +129,14 @@
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="MasterMind.cpp" />
     <ClCompile Include="ViewRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
     <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="ViewRender.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
