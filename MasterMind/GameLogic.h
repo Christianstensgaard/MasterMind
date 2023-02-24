@@ -5,14 +5,21 @@
 	public:
 		~GameLogic();
 		GameLogic();
-		GameLogic(int* ptr_hints, int* ptr_points, int size);
 		int* getPoints();
 		int* getHints();
 		void run();
-		int size;
+		int size{ 4 };
+
+		int gameOver();
+
+
+
+		int none;
+		int lost;
+		int won;
+
 
 	private:
-
 		int* ptr_hints;
 		int* ptr_points;
 	};

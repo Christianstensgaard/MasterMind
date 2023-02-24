@@ -57,4 +57,12 @@
       <Filter>Source Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\MastermindCpp\MastermindCpp\GameMap.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\MastermindCpp\MastermindCpp\Menu.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

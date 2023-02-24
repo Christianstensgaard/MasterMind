@@ -42,4 +42,8 @@ namespace console
     void restorePosition() {
         std::cout << "\033[u";
     }
+    void clear()
+    {
+        std::cout << "\033[2J";
+    }
 }

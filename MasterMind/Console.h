@@ -12,4 +12,5 @@ namespace console
     void clearFromPointer();
     void savePosition();
     void restorePosition();
+    void clear();
 }
