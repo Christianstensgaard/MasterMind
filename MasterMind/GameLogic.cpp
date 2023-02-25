@@ -72,7 +72,7 @@ int&	GameLogic	::getPlacement()
 {
 	return correctPlacement;
 }
-int&	GameLogic	::getRound()
+int	GameLogic	::getRound()
 {
 	int returnvalue = gameRound + 2;
 	gameRound++;

@@ -105,7 +105,6 @@ int Menu() {
 
     //- Calling All classes used in this scope.
     ViewRender render;
-    Input input;
 
 
     //- Show the Menu

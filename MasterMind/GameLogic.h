@@ -10,7 +10,7 @@
 		void analyzeInput(int* inputArray);
 		int& getColor();
 		int& getPlacement();
-		int& getRound();
+		int getRound();
 
 
 		
