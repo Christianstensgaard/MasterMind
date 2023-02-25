@@ -1,47 +1,81 @@
 #include "GameLogic.h"
 #include "Console.h"
-
-
-const int won = 0;
-const int lost = 1;
-const int none = 2;
-
-
-int size = 4;
-int* ptr_hints;
-int* ptr_points;
+#include <random>
 
 
 
 
 
-
-
-GameLogic::GameLogic()
+GameLogic::GameLogic(int difficulty) {
+	this->difficulty = difficulty;
+	this->correctColor = 0;
+	this->correctPlacement = 0;
+	this->gameState = 2;
+	this->gameRound = 0;
+}
+int  GameLogic::gameOver()
 {
-	ptr_hints = new int[size];
-	ptr_points = new int[size];
+	return gameState;
+}
+void GameLogic::Init()
+{
+
+	//- Generating a code between 0 and difficulty
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> distr(0, difficulty);
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		codeArray[i] = distr(gen);
+	}
+
+
+	//debug only printing the code top-left
+	console::moveTo(0, 0);
+	for (size_t i = 0; i < 4; i++)
+	{
+		console::print(codeArray[i]);
+	}
+
+
+
+}
+void GameLogic::analyzeInput(int* inputArray)
+{
+	for (size_t i = 0; i < 4; i++)
+	{
+		if (inputArray[i] == codeArray[i])
+			correctPlacement++;
+
+		for (size_t c = 0; c < 4; c++)
+		{
+			if (inputArray[i] == codeArray[c]) {
+				correctColor++;
+				break;
+			}
+		}
+	}
+
+	if (correctPlacement == 4)
+		gameState = 0;
+
+}
+int&  GameLogic::getColor()
+{
+	return correctColor;
+}
+int&  GameLogic::getPlacement()
+{
+	return correctPlacement;
 }
 
-GameLogic::~GameLogic(){}
-
-	
-int* GameLogic::getPoints()
+int& GameLogic::getRound()
 {
-	return ptr_points;
+	int returnvalue = gameRound + 2;
+	gameRound++;
+	return returnvalue;
 }
 
-int* GameLogic::getHints()
-{
-	return ptr_hints;
-}
 
-void GameLogic::run()
-{
-}
-
-int GameLogic::gameOver()
-{
-	return 0;
-}
 

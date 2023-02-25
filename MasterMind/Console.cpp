@@ -7,6 +7,12 @@ namespace console
     {
         std::cout << text;
     }
+
+    void print(char text) {
+        std::cout << text;
+    }
+
+
     void print(std::string text) {
         std::cout << text;
     }
@@ -45,5 +51,6 @@ namespace console
     void clear()
     {
         std::cout << "\033[2J";
+        moveTo(0, 0);
     }
 }

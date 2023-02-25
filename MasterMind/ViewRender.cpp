@@ -27,10 +27,12 @@ void ViewRender::PrintHints(char* ptr_array, int& current_placement)
             console::print(",");
     }
 }
-void ViewRender::LoadMap(const char* path)
+void ViewRender::LoadMap(std::string path)
 {
-    std::string filename = "Menu.txt";
+    std::string filename = path;
     std::ifstream input_file(filename);
+
+    console::moveTo(0, 0);
 
     if (input_file.is_open()) {
         std::string line;
@@ -38,11 +40,6 @@ void ViewRender::LoadMap(const char* path)
             console::printLine(line);
         }
         input_file.close();
-
-        console::savePosition();
-        console::moveTo(11, 18);
-        console::print("X");
-        console::restorePosition();
     }
     else {
         console::print("Unable to open file");

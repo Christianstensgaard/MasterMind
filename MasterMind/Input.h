@@ -4,5 +4,6 @@
 class Input
 {
 public:
-	void Read(std::string output);
+	bool isValid(int* output, int size);
+	void getAsInt(int* output);
 };

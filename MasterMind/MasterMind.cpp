@@ -12,36 +12,78 @@
 
 
 void startGame() {
-
-    console::clear();
-    GameLogic gameLogic;
+    GameLogic gameLogic(9);
     ViewRender render;
+    console::moveTo(0, 0);
+    render.LoadMap("GameMap.txt");
+
+
+
+    //- Init the Game
+    gameLogic.Init();
+
+
+
+
+
+
+
+
+
+
+
 
     //- While the game is running
     while (gameLogic.gameOver() == gameLogic.none)
     {
-        //- Setup Scoped Game variables
-        int points[4];
-        int hints[4];
+        //- Setup Scoped Game variables //- Since all are 4 bytes only one array can be used? 
         int input[4];
 
 
-        //|BEGINING THE GAME|
 
-        //- Take userinput
-        std::string userInput;
-        std::cin >> userInput;
+        //- Keep running untilll the user has input the right type. 
+        bool isValidInput = false;
+        while (!isValidInput) {
+            //- Take userinput
+            console::moveTo(26, 2);
+            console::clearFromPointer();
+            std::string userInput;
+            std::cin >> userInput;
+
+            const char* input_buffer = userInput.c_str();
 
 
-        console::print(userInput);
+            //valid the length of the array, and check if it's between 0-Deficulty
+            int counter = 0;
+            while (input_buffer[counter] != '\0') {
+
+                if ((input_buffer[counter] - '0') >= 0 && (input_buffer[counter] - '0') <= 9) {
+                    input[counter] = input_buffer[counter++] - '0';
+                }
+                else break;
+            }
+            counter == 4 ? isValidInput = true : isValidInput = false;
+        }
+
+
+        render.PrintPoint(input, gameLogic.getRound());
+
+        //- here we give the array to the game logic layer that.
+        gameLogic.analyzeInput(input);
+
+
+        
 
 
 
-        //- Send userinput to the game. 
-
-        //- Update the render / view
+        console::moveTo(0, 10);
+        console::print(gameLogic.getColor());
+        console::print(gameLogic.getPlacement());
     }
 
+    console::clear();
+    console::print("You Won");
+    //-Display Win or lose
 
 
 }
@@ -51,31 +93,29 @@ void openSettings() {
 
 }
 
+int Menu() {
+    bool isRunning = true;
+
+    //- Calling All classes used in this scope.
+    ViewRender render;
+    Input input;
 
 
+    //- Show the Menu
 
-
-
-
-
-
-
-
-int main()
-{
-	bool isRunning = true;
-
-	//- Calling All classes used in this scope.
-	ViewRender render;
-	Input input;
-
-
-	//- Show the Menu
-
-	render.LoadMap("Menu"); // Loading Menu
+    render.LoadMap("Menu.txt"); // Loading Menu
     int placement = 11;
     char key;
     int current = 0;
+
+
+    console::savePosition();
+    console::moveTo(11, 18);
+    console::print("X");
+    console::restorePosition();
+
+
+
 
     //This listen for key inputs
     while (isRunning) {
@@ -115,33 +155,47 @@ int main()
                 }
                 break;
             case '\r':
-                //Handling the Menu-Enter Action
-                switch (current)
-                {
-
-                case 0:
-                    std::cout << "Starting Game";
-                    startGame();
-                    break;
-
-                case 1:
-                    std::cout << "Settings";
-                    openSettings();
-                    break;
-
-                case 2:
-                    std::cout << "Exit";
-                    isRunning = false;
-                    break;
-
-                default:
-                    break;
-                }
+                return current;
                 break;
 
             default:
                 break;
             }
         }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+int main()
+{
+    switch (Menu())
+    {
+
+    case 0:
+        std::cout << "Starting Game";
+        startGame();
+        break;
+
+    case 1:
+        std::cout << "Settings";
+
+        openSettings();
+        break;
+
+    case 2:
+        std::cout << "Exit";
+        break;
+
+    default:
+        break;
     }
 }
