@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MasterMind", "MasterMind\MasterMind.vcxproj", "{96135CB1-973D-4219-800A-491C572FAD20}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.vcxproj", "{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{96135CB1-973D-4219-800A-491C572FAD20}.Release|x64.Build.0 = Release|x64
 		{96135CB1-973D-4219-800A-491C572FAD20}.Release|x86.ActiveCfg = Release|Win32
 		{96135CB1-973D-4219-800A-491C572FAD20}.Release|x86.Build.0 = Release|Win32
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Debug|x64.ActiveCfg = Debug|x64
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Debug|x64.Build.0 = Debug|x64
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Debug|x86.ActiveCfg = Debug|Win32
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Debug|x86.Build.0 = Debug|Win32
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Release|x64.ActiveCfg = Release|x64
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Release|x64.Build.0 = Release|x64
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Release|x86.ActiveCfg = Release|Win32
+		{A3D973FF-5222-4C5C-B5CC-C0FE1B04CEE1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

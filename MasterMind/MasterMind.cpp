@@ -7,12 +7,15 @@
 #include "ViewRender.h"
 #include <iostream>
 #include <conio.h>
+#include <chrono>
+#include <thread>
 
 
 
 
-void startGame() {
-    GameLogic gameLogic(9);
+void startGame(int diff) {
+    console::clear();
+    GameLogic gameLogic(diff);
     ViewRender render;
     console::moveTo(0, 0);
     render.LoadMap("GameMap.txt");
@@ -30,6 +33,8 @@ void startGame() {
         //- Setup Scoped Game variables //- Since all are 4 bytes only one array can be used? 
         int input[4];
 
+        console::moveTo(28, 1);
+        console::print("Green = right placement\nRed   = right number");
 
 
         //- Keep running untilll the user has input the right type. 
@@ -67,28 +72,35 @@ void startGame() {
             gameLogic.getPlacement(), 
             round
         );
-
-
-        console::moveTo(0, 10);
-        console::print("Color: ");
-        console::print(gameLogic.getColor());
-        console::print(" , Placement: ");
-        console::print(gameLogic.getPlacement());
     }
-
     console::clear();
     console::print("You Won");
-    //-Display Win or lose
-
-
+    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
 }
 
 
-void openSettings() {
+int openSettings() {
+    console::clear();
+    console::print("Settings :P\n");
+    console::print("Note max range = 9\n\n");
+    console::print("Set the code range 0 -> : ");
+    int returnValue;
+    {
+        std::string input;
+        std::cin >> input;
 
+        const char* buffer = input.c_str();
+
+        returnValue = buffer[0] - '0';
+    }
+
+    if (returnValue >= 0 && returnValue <= 9)
+        return returnValue;
+    return 4;
 }
 
 int Menu() {
+    console::clear();
     bool isRunning = true;
 
     //- Calling All classes used in this scope.
@@ -109,19 +121,17 @@ int Menu() {
     console::print("X");
     console::restorePosition();
 
-
-
-
     //This listen for key inputs
+    console::print("W = Up, S = down");
+    console::restorePosition();
     while (isRunning) {
-        console::restorePosition();
         if (_kbhit()) { // Check if a key has been pressed
             key = _getch(); // Get the pressed key
             switch (key)
             {
             case 'w':
             case 'W':
-                if (placement < 18) {
+                if (placement >= 13) {
 
                     console::moveTo(placement, 18);
                     console::print(" ");
@@ -135,7 +145,7 @@ int Menu() {
                 break;
             case 's':
             case 'S':
-                if (placement < 15) {
+                if (placement < 15 && placement <= 18) {
 
                     //Removing the old X
                     console::moveTo(placement, 18);
@@ -157,40 +167,41 @@ int Menu() {
                 break;
             }
         }
+        else std::this_thread::sleep_for(std::chrono::microseconds(1500));
     }
-
 
 }
 
-
-
-
-
-
-
-
-
 int main()
 {
-    switch (Menu())
-    {
+    bool active = true;
+    console::clear();
+    int defficulty = 4;
 
-    case 0:
-        std::cout << "Starting Game";
-        startGame();
-        break;
+    std::string val;
+    std::cout << "hello world";
+    std::cin >> val;
 
-    case 1:
-        std::cout << "Settings";
+    /*while(active)
+        switch (Menu())
+        {
 
-        openSettings();
-        break;
+        case 0:
+            std::cout << "Starting Game";
+            startGame(defficulty);
+            break;
 
-    case 2:
-        std::cout << "Exit";
-        break;
+        case 1:
+            std::cout << "Settings";
+            defficulty = openSettings();
+            break;
 
-    default:
-        break;
-    }
+        case 2:
+            std::cout << "Exit";
+            active = false;
+            break;
+
+        default:
+            break;
+        }*/
 }
