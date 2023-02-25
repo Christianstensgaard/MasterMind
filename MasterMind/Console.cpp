@@ -28,6 +28,18 @@ namespace console
     void printLine(std::string text) {
         std::cout << text << std::endl;
     }
+    void colorRed()
+    {
+        std::cout << "\033[31m";
+    }
+    void colorGreen()
+    {
+        std::cout << "\033[32m";
+    }
+    void colorWhite()
+    {
+        std::cout << "\033[37m";
+    }
     //- This do not work, will return at a later point.
     void read(const char* output) {
         using std::string;

@@ -17,15 +17,36 @@ void ViewRender::PrintPoint(int* ptr_array, int& current_placement)
         console::print(*(ptr_array + i));
     }
 }
-void ViewRender::PrintHints(char* ptr_array, int& current_placement)
+void ViewRender::PrintHints(int& correct_numbers, int& correct_placement, int& current_placement)
 {
     console::moveTo(current_placement, 43);
-    for (int i = 0; i < 4; i++)
+    int current = 0; //- For printing ","
+
+    //- Printing the hints
+        //- Change color for the console.
+    console::colorRed();
+    for (size_t i = 0; i < correct_numbers; i++)
     {
-        console::print(*(ptr_array + i));
-        if (i < 3)
+        //print the hints
+        console::print("O");
+        if (current++ < 3)
             console::print(",");
     }
+    //- Reset Color
+
+    //- Printing the placements
+        //- Change color for the console
+    console::colorGreen();
+    for (size_t i = 0; i < correct_placement; i++)
+    {
+        console::print("O");
+        if (current++ < 3)
+            console::print(",");
+    }
+    //- Reset  color.
+    console::colorWhite();
+
+    //TODO -> Working on the Print hints function. 
 }
 void ViewRender::LoadMap(std::string path)
 {

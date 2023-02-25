@@ -24,15 +24,6 @@ void startGame() {
 
 
 
-
-
-
-
-
-
-
-
-
     //- While the game is running
     while (gameLogic.gameOver() == gameLogic.none)
     {
@@ -64,20 +55,24 @@ void startGame() {
             }
             counter == 4 ? isValidInput = true : isValidInput = false;
         }
+        int round = gameLogic.getRound();
+        console::moveTo(round, 0);
 
-
-        render.PrintPoint(input, gameLogic.getRound());
+        render.PrintPoint(input, round);
 
         //- here we give the array to the game logic layer that.
         gameLogic.analyzeInput(input);
-
-
-        
-
+        render.PrintHints(
+              gameLogic.getColor(), 
+            gameLogic.getPlacement(), 
+            round
+        );
 
 
         console::moveTo(0, 10);
+        console::print("Color: ");
         console::print(gameLogic.getColor());
+        console::print(" , Placement: ");
         console::print(gameLogic.getPlacement());
     }
 

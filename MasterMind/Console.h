@@ -8,6 +8,9 @@ namespace console
     void print(std::string text);
     void printLine(const char* text);
     void printLine(std::string text);
+    void colorRed();
+    void colorGreen();
+    void colorWhite();
     void moveTo(int x, int y);
     void clearFromPointer();
     void savePosition();

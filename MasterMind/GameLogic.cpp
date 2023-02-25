@@ -6,18 +6,18 @@
 
 
 
-GameLogic::GameLogic(int difficulty) {
+		GameLogic	::GameLogic(int difficulty) {
 	this->difficulty = difficulty;
 	this->correctColor = 0;
 	this->correctPlacement = 0;
 	this->gameState = 2;
 	this->gameRound = 0;
 }
-int  GameLogic::gameOver()
+int		GameLogic	::gameOver()
 {
 	return gameState;
 }
-void GameLogic::Init()
+void	GameLogic	::Init()
 {
 
 	//- Generating a code between 0 and difficulty
@@ -41,14 +41,17 @@ void GameLogic::Init()
 
 
 }
-void GameLogic::analyzeInput(int* inputArray)
+void	GameLogic	::analyzeInput(int* inputArray)
 {
+	correctColor = 0;
+	correctPlacement = 0;
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (inputArray[i] == codeArray[i])
+		if (inputArray[i] == codeArray[i]) {
 			correctPlacement++;
-
-		for (size_t c = 0; c < 4; c++)
+			
+		}
+		else for (size_t c = 0; c < 4; c++)
 		{
 			if (inputArray[i] == codeArray[c]) {
 				correctColor++;
@@ -61,21 +64,19 @@ void GameLogic::analyzeInput(int* inputArray)
 		gameState = 0;
 
 }
-int&  GameLogic::getColor()
+int&	GameLogic	::getColor()
 {
 	return correctColor;
 }
-int&  GameLogic::getPlacement()
+int&	GameLogic	::getPlacement()
 {
 	return correctPlacement;
 }
-
-int& GameLogic::getRound()
+int&	GameLogic	::getRound()
 {
 	int returnvalue = gameRound + 2;
 	gameRound++;
 	return returnvalue;
 }
-
 
 
