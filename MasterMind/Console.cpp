@@ -7,12 +7,9 @@ namespace console
     {
         std::cout << text;
     }
-
     void print(char text) {
         std::cout << text;
     }
-
-
     void print(std::string text) {
         std::cout << text;
     }
@@ -39,14 +36,6 @@ namespace console
     void colorWhite()
     {
         std::cout << "\033[37m";
-    }
-    //- This do not work, will return at a later point.
-    void read(const char* output) {
-        using std::string;
-        string buffer;
-        std::cin >> buffer;
-
-        output = buffer.c_str();
     }
     void moveTo(int x, int y) {
         std::cout << "\033[" << x << ";" << y << "H";

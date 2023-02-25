@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Render">
       <UniqueIdentifier>{e9e09875-1509-4465-b156-4373bd924396}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Input">
-      <UniqueIdentifier>{72b4e5d3-ffa0-4d9c-9b61-8f5d91b75382}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{0cece1b2-14db-4395-98b6-17765b04d528}</UniqueIdentifier>
     </Filter>
@@ -39,9 +36,6 @@
     <ClCompile Include="ViewRender.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h">
@@ -52,9 +46,6 @@
     </ClInclude>
     <ClInclude Include="ViewRender.h">
       <Filter>Source Files\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Source Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

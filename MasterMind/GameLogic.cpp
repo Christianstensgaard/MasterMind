@@ -2,10 +2,6 @@
 #include "Console.h"
 #include <random>
 
-
-
-
-
 		GameLogic	::GameLogic(int difficulty) {
 	this->difficulty = difficulty;
 	this->correctColor = 0;
@@ -78,5 +74,3 @@ int	GameLogic	::getRound()
 	gameRound++;
 	return returnvalue;
 }
-
-

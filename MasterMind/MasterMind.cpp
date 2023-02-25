@@ -6,11 +6,7 @@
 #include <thread>
 #include "Console.h"
 #include "GameLogic.h"
-#include "Input.h"
 #include "ViewRender.h"
-
-
-
 
 void startGame(int diff) {
     console::clear();
