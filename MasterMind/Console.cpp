@@ -62,7 +62,7 @@ namespace console
     }
     void clear()
     {
-        std::cout << "\033c";
+        std::cout << "\033[2J";
         moveTo(0, 0);
     }
 }

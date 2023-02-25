@@ -1,14 +1,13 @@
-// MasterMind.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <chrono>
+#include <thread>
 #include "Console.h"
 #include "GameLogic.h"
 #include "Input.h"
 #include "ViewRender.h"
-#include <iostream>
-#include <conio.h>
-#include <chrono>
-#include <thread>
 
 
 
@@ -77,8 +76,6 @@ void startGame(int diff) {
     console::print("You Won");
     std::this_thread::sleep_for(std::chrono::milliseconds(1500));
 }
-
-
 int openSettings() {
     console::clear();
     console::print("Settings :P\n");
@@ -98,7 +95,6 @@ int openSettings() {
         return returnValue;
     return 4;
 }
-
 int Menu() {
     console::clear();
     bool isRunning = true;
@@ -166,7 +162,7 @@ int Menu() {
                 break;
             }
         }
-        else std::this_thread::sleep_for(std::chrono::microseconds(1500));
+        else std::this_thread::sleep_for(std::chrono::milliseconds(38));
     }
 
 }
@@ -174,14 +170,11 @@ int Menu() {
 int main()
 {
     bool active = true;
-    console::clear();
     int defficulty = 4;
+    console::print("Designed by Christian Leo");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
 
-    std::string val;
-    std::cout << "hello world";
-    std::cin >> val;
-
-    /*while(active)
+    while (active) {
         switch (Menu())
         {
 
@@ -202,5 +195,6 @@ int main()
 
         default:
             break;
-        }*/
+        }
+    }
 }
