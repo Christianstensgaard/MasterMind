@@ -45,7 +45,7 @@ void	GameLogic	::analyzeInput(int* inputArray)
 	{
 		if (inputArray[i] == codeArray[i]) {
 			correctPlacement++;
-			
+			break;
 		}
 		else for (size_t c = 0; c < 4; c++)
 		{

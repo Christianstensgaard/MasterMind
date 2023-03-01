@@ -61,7 +61,7 @@ void ViewRender::LoadMap(std::string path)
 /// </summary>
 /// <param name="type"> 0 = Red, rest = green</param>
 /// <param name="isLast"></param>
-void ViewRender::hintprinter(int& type, int& current)
+void ViewRender::hintprinter(const int type, const int current)
 {
     type == 0 ? console::colorRed() : console::colorGreen();
     console::print("O");

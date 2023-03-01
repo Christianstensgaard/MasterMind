@@ -8,7 +8,7 @@ public:
 	void LoadMap(std::string path);
 
 private:
-	void hintprinter(int& type, int& current);
+	void hintprinter(const int type, const int current);
 
 };
 
