@@ -113,7 +113,7 @@ int Menu() {
     console::moveTo(11, 18);
     console::print("X");
     console::restorePosition();
-
+    // :)
     //This listen for key inputs
     console::restorePosition();
     while (isRunning) {
