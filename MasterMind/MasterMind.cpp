@@ -106,6 +106,8 @@ int Menu() {
     char key;
     int current = 0;
 
+    console::moveTo(28, 1);
+    console::print("W = Up, S = down");
 
     console::savePosition();
     console::moveTo(11, 18);
@@ -113,7 +115,6 @@ int Menu() {
     console::restorePosition();
 
     //This listen for key inputs
-    console::print("W = Up, S = down");
     console::restorePosition();
     while (isRunning) {
         if (_kbhit()) { // Check if a key has been pressed
