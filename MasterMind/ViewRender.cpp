@@ -4,7 +4,6 @@
 #include "console.h"
 
 const static int horizontal_spacing = 8;
-
 void ViewRender::PrintPoint(int* ptr_array, int& current_placement)
 {
     //- Move the cursor to the right location. 
@@ -62,13 +61,11 @@ void ViewRender::LoadMap(std::string path)
 /// </summary>
 /// <param name="type"> 0 = Red, rest = green</param>
 /// <param name="isLast"></param>
-void ViewRender::hintprinter(int type, int current)
+void ViewRender::hintprinter(int& type, int& current)
 {
     type == 0 ? console::colorRed() : console::colorGreen();
     console::print("O");
-    console::colorWhite();
+    console::colorWhite();  
     if (current < 3)
         console::print(",");
 }
-
-

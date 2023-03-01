@@ -43,9 +43,7 @@ namespace console
     void clearFromPointer() {
         std::cout << "\033[K";
     }
-    void savePosition() {
-        std::cout << "\033[s";
-    }
+    void savePosition(){}
     void restorePosition() {
         std::cout << "\033[u";
     }
